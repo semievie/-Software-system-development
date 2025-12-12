@@ -1,0 +1,237 @@
+{
+    "alphabet": [
+        "0",
+        "1",
+        "Y",
+        "N",
+        "X"
+    ],
+    "states": {
+        "q1": {
+            "0": "N",
+            "1": "N",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ R ch_f_1",
+            "X": "N"
+        },
+        "q2": {
+            "0": "N",
+            "1": "0 R q3",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L check",
+            "X": "N"
+        },
+        "q3": {
+            "0": "N",
+            "1": "0 R q4",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L check",
+            "X": "N"
+        },
+        "q4": {
+            "0": "N",
+            "1": "1 R q2",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L check",
+            "X": "N"
+        },
+        "q5": {
+            "0": "λ L q5",
+            "1": "1 L q6",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ R q_scan",
+            "X": "N"
+        },
+        "q6": {
+            "0": "0 L q7",
+            "1": "N",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "N",
+            "X": "N"
+        },
+        "q7": {
+            "0": "0 L q5",
+            "1": "N",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "N",
+            "X": "N"
+        },
+        "check": {
+            "0": "λ L N",
+            "1": "1 N q5",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "N",
+            "X": "N"
+        },
+        "N": {
+            "0": "λ L N",
+            "1": "λ L N",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "N N !",
+            "X": "N"
+        },
+        "Y": {
+            "0": "N",
+            "1": "λ L Y",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "Y N !",
+            "X": "N"
+        },
+        "ch_f_1": {
+            "0": "N",
+            "1": "1 R ch_s_1",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L Y",
+            "X": "N"
+        },
+        "ch_s_1": {
+            "0": "N",
+            "1": "1 R ch_d_1",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L Y",
+            "X": "N"
+        },
+        "ch_d_1": {
+            "0": "N",
+            "1": "1 R ch_e_1",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L N",
+            "X": "N"
+        },
+        "back": {
+            "0": "N",
+            "1": "L",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ R q2",
+            "X": "N"
+        },
+        "ch_e_1": {
+            "0": "N",
+            "1": "1 L back",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L Y",
+            "X": "N"
+        },
+        "q_scan": {
+            "0": "R",
+            "1": "X L q_move_left_end",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L q_move_left_tostart",
+            "X": "R"
+        },
+        "q_move_left_end": {
+            "0": "L",
+            "1": "L",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ R q_find_first_zero",
+            "X": "L"
+        },
+        "q_find_first_zero": {
+            "0": "1 R q_return_to_X",
+            "1": "R",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "1 R q_return_to_X",
+            "X": "R"
+        },
+        "q_return_to_X": {
+            "0": "R",
+            "1": "R",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "R",
+            "X": "0 R q_scan"
+        },
+        "q_move_left_tostart": {
+            "0": "L",
+            "1": "L",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ R q_cleanup_replace",
+            "X": "L"
+        },
+        "q_cleanup_replace": {
+            "0": "λ R q_cleanup_replace",
+            "1": "R",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "λ": "λ L q_move_left_resutl",
+            "X": "0 R q_cleanup_replace"
+        },
+        "q_move_left_resutl": {
+            "0": "L",
+            "1": "1 L q0",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "X": "N",
+            "λ": "L"
+        },
+        "q0": {
+            "0": "N",
+            "1": "L",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "X": "N",
+            "λ": "λ R q8"
+        },
+        "q8": {
+            "0": "N",
+            "1": "1 L q1",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "X": "N",
+            "λ": "N"
+        },
+        "q9": {
+            "0": "N",
+            "1": "N",
+            "comment": "",
+            "Y": "N",
+            "N": "N",
+            "X": "N",
+            "λ": "N"
+        }
+    },
+    "word": "Y"
+}
